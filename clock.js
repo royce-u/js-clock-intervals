@@ -1,29 +1,46 @@
-var secondDegrees = 0
-var minuteDegrees = 0
-var hourDegrees = 0
+var secondDegrees = secondDegreesActual()
+var minuteDegrees = minuteDegreesActual()
+var hourDegrees = hourDegreesActual()
+var secondsHand = document.getElementById('second');
+var minutesHand = document.getElementById('minute');
+var hoursHand = document.getElementById('hour');
+
+function setClockPositions() {
+    secondsHand.style.transform = "rotate(" + secondDegrees + "deg)"
+    minutesHand.style.transform = "rotate(" + minuteDegrees + "deg)"
+    hoursHand.style.transform = "rotate(" + hourDegrees + "deg)"
+}
 
 function secondRotation() {
     secondDegrees += 6
-    secondsHand.style.transform = "rotate(" + secondDegrees + "deg)"
+    setClockPositions()
 }
-
 function minuteRotation() {
     minuteDegrees += 6
-    minutesHand.style.transform = "rotate(" + minuteDegrees + "deg)"
+    setClockPositions()
 }
-
 function hourRotation() {
     hourDegrees += 30
-    hourHand.style.transform = "rotate(" + minuteDegrees + "deg)"
+    setClockPositions()
+}
+//calculate hand starting point
+function secondDegreesActual () {
+    var today = new Date();
+    currentSeconds = today.getSeconds()
+    return currentSeconds * 6
+}
+function minuteDegreesActual () {
+    var today = new Date();
+    currentMinutes = today.getMinutes()
+    return currentMinutes * 6
+}
+function hourDegreesActual () {
+    var today = new Date();
+    currentHours = today.getHours()
+    return currentHours * 30
 }
 
-var secondsHand = document.getElementById('second')
-var minutesHand = document.getElementById('minute')
-var hourHand = document.getElementById('hour')
 setInterval(secondRotation, 1000);
 setInterval(minuteRotation, 60000);
-setInverval(hourRotation, 3600000);
-
-
-// console.log(secondDegrees(60))
-
+setInterval(hourRotation, 3600000);
+setClockPositions();
