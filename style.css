@@ -5,10 +5,30 @@
 }
 
 #hour {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    transform: rotate(20deg)
 }
 
 #minute {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
 }
 
 #second {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+#face {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
 }
