@@ -17,11 +17,13 @@ function hourRotation() {
     hourHand.style.transform = "rotate(" + minuteDegrees + "deg)"
 }
 
-var secondsHand = document.getElementById('second')``
+var secondsHand = document.getElementById('second')
 var minutesHand = document.getElementById('minute')
 var hourHand = document.getElementById('hour')
 setInterval(secondRotation, 1000);
-setInterval(minuteRotation, 3600000);
+setInterval(minuteRotation, 60000);
+setInverval(hourRotation, 3600000);
+
 
 // console.log(secondDegrees(60))
 
